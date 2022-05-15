@@ -13,7 +13,7 @@ int main()
     cout << "The program will then output all the possibilities for your word." << endl;
 
     char alphabet[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-    char finalWord[5]; // wordle deciphers a 5 letter word, so a 5 space array
+    char finalWord[5]  = {'0','0','0','0','0'}; // wordle deciphers a 5 letter word, so a 5 space array
 
     /***************************FIND LETTERS USER HAS***************************/
     cout << "What correct letters do you have, and what position are they in?" << endl;
@@ -40,21 +40,29 @@ int main()
     }
 
     char userInput;
-    cout << endl << "Does this look correct? ";
+    cout << endl << "Does this look correct? (YES/NO) || ";
     // display word as known at the moment to the user
     int checkWordCorrect = 0;
-    while (checkWordCorrect != 4){
+    while (checkWordCorrect <= 4){
         if (finalWord[checkWordCorrect] == '0'){
-            cout << "_";
+            cout << "_ ";
         }
         else{
-            cout << finalWord[checkWordCorrect];
+            cout << finalWord[checkWordCorrect] << " ";
         }
         checkWordCorrect++;
     }
 
+
+    cout << " ||";
     cin >> userInput;
-    
+   
+    if (userInput == 'NO'){
+        cout << "YAAAY";
+    }
+    else{
+        cout << "OKAYYY";
+    }
     
     return 0;
 }
