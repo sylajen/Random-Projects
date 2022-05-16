@@ -2,6 +2,9 @@
 
 using namespace std;
 
+char* dilemmaWord(char dilemmaArr [5]);
+char* printDilemmaWord(char dilemmaArr [5]);
+
 int main()
 {
     cout << "Hi there!" << endl;
@@ -22,8 +25,28 @@ int main()
     cout << "P O W E R" << endl;
     cout << "1 2 3 4 5" << endl;
     
-    // this while loop will fill the array with letters that are known to the user already
-    string endCorrectLetters;
+    // gather user's word and see if it looks correct
+    string userInput = "NO";
+    while (userInput == "NO"){
+        dilemmaWord(finalWord);
+        printDilemmaWord(finalWord);
+        cout << endl << "Does this look correct? (YES/NO) || ";
+        cin >> userInput;
+    }
+   
+    if (userInput == "NO"){
+        cout << "YAAAY";
+    }
+    else{
+        cout << "OKAYYY";
+    }
+    
+    return 0;
+}
+
+// gather user input as to what letters are known and where they are
+char* dilemmaWord(char dilemmaArr[5]){
+    string endCorrectLetters = "YES";
     char letterInput;
     int letterPosition;
     while (endCorrectLetters != "NO"){
@@ -33,36 +56,25 @@ int main()
         cin >> letterPosition;
 
         letterPosition = letterPosition - 1; // to fit it in the constraints of an array
-        finalWord[letterPosition] = letterInput;
+        dilemmaArr[letterPosition] = letterInput;
 
-        cout << endl << "Do you know another letter? (YES/NO) ";
+        cout << endl << "Do you know another letter? (YES/NO) || ";
         cin >> endCorrectLetters;
     }
+    return dilemmaArr;
+}
 
-    char userInput;
-    cout << endl << "Does this look correct? (YES/NO) || ";
-    // display word as known at the moment to the user
+// display word as known at the moment to the user
+char* printDilemmaWord(char dilemmaArr[5]){
     int checkWordCorrect = 0;
     while (checkWordCorrect <= 4){
-        if (finalWord[checkWordCorrect] == '0'){
+        if (dilemmaArr[checkWordCorrect] == '0'){
             cout << "_ ";
         }
         else{
-            cout << finalWord[checkWordCorrect] << " ";
+            cout << dilemmaArr[checkWordCorrect] << " ";
         }
         checkWordCorrect++;
     }
-
-
-    cout << " ||";
-    cin >> userInput;
-   
-    if (userInput == 'NO'){
-        cout << "YAAAY";
-    }
-    else{
-        cout << "OKAYYY";
-    }
-    
-    return 0;
+    return dilemmaArr;
 }
