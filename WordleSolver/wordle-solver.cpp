@@ -1,9 +1,10 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-char* letterPositioning(char wordArr[5]); //
-char* printLetterPositioning(char wordArr[5]);
+char* theWord(char wordArr[5]); //
+char* printTheWord(char wordArr[5]);
 
 char* charConv(int attemptNum, string attemptStr, char attemptArr[5]); // function to convert string to char
 
@@ -13,10 +14,8 @@ char* printIncorrectLetters(char incorrectArr[26]);
 int main()
 {
     string userInput;
-    char finalWord[5]; // array to hold the correct letters, in the right spot
-    char correctLetters[5]; // array to hold the correct letters, in the wrong spot
     int attemptNum = 0;
-    char attempt1[5], attempt1[5], attempt2[5], attempt3[5], attempt4[5], attempt5[5];
+    char attempt1[5], attempt2[5], attempt3[5], attempt4[5], attempt5[5];
     string attempt1Str, attempt2Str, attempt3Str, attempt4Str, attempt5Str;
     char alphabet[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     char wrongLetters[26] = {'0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'};
@@ -32,16 +31,16 @@ int main()
     cout << "EXAMPLE" << endl;
     cout << "P O W E R" << endl;
     cout << "1 2 3 4 5" << endl;
-    cout << "Letter P would be in position 1."
+    cout << "Letter P would be in position 1." << endl;
 
     /***************************FIND CORRECT LETTERS USER HAS IN THE CORRECT SPOT***************************/
     cout << "What CORRECT letters in the CORRECT position do you have, and what position are they in?" << endl;
 
     userInput = "NO";
     while (userInput == "NO"){
-        finalWord[5]  = {'0','0','0','0','0'}; // wordle deciphers a 5 letter word, so a 5 space array
-        letterPositioning(finalWord);
-        printLetterPositioning(finalWord);
+        char finalWord[5] = {'0','0','0','0','0'}; // wordle deciphers a 5 letter word, so a 5 space array
+        theWord(finalWord);
+        printTheWord(finalWord);
         cout << endl << "Does this look correct? (YES/NO) || ";
         cin >> userInput;
         // if user input == no, ask which position is incorrect, display the letter, and ask what to replace with
@@ -52,7 +51,7 @@ int main()
     
     userInput = "NO";
     while (userInput == "NO"){
-        collectLetters[5]  = {'0','0','0','0','0'};
+        char correctLetters[5]  = {'0','0','0','0','0'};
         theWord(correctLetters);
         printTheWord(correctLetters);
         cout << endl << "Does this look correct? (YES/NO) || ";
@@ -64,13 +63,13 @@ int main()
     cout << "What attempts have you made so far? (Type 'END' when you're done)" << endl;
     
     userInput = "NO";
-    while (userInput == "END" || attemptNum <=5){
+    while (userInput == "END" || attemptNum <= 5){
         attemptNum = 1;
         cout << "Attempt number " << attemptNum << ": ";
         cin >> userInput;
-        cout >> endl;
+        cout << endl;
 
-        for (userInput.size != 5){
+        for (sizeof(userInput) != 5){
             cout << "Incorrect number of letters. Re-enter attempt 1: ";
             cin >> userInput;
             cout << endl;
@@ -107,7 +106,6 @@ int main()
     cout << attempt5Str << endl;
     
 
-
 }
 
 /*******************************FUNCTIONS*************************************/
@@ -119,7 +117,7 @@ char* letterPositioning(char wordArr[5]){
     while (endCorrectLetters != "NO"){
         cout << endl << "Enter letter: ";
         cin >> letterInput;
-        for (sizeof(letterInput) != 1){
+        while (sizeof(letterInput) != 1){
             cout << "Incorrect number of letters. Re-enter letter: ";
             cin >> letterInput;
             cout << endl;
@@ -127,7 +125,7 @@ char* letterPositioning(char wordArr[5]){
 
         cout << endl << "Enter position: ";
         cin >> letterPosition;
-        for (letterPosition < 1 || letterPosition > 5){
+        while (letterPosition < 1 || letterPosition > 5) {
             cout << "Incorrect number of letters. Re-enter letter: ";
             cin >> letterInput;
             cout << endl;
@@ -158,57 +156,9 @@ char* printLetterPositioning(char wordArr[5]){
     return wordArr;
 }
 
-char* charConv(attemptNum, userInput, placeholderArr[5]){
-
+char* charConv(int attemptNum, string userInput, char placeholderArr[5]){
+    userInput.copy(placeholderArr, 5);
+    placeholderArr[5] = '\0';
+    return placeholderArr;
 }
 
-/* gather user input as to what letters are known and where they are
-char* incorrectLetters(char alphabet[26], char incorrectArr[26]){
-    string endIncorrectLetters = "YES";
-    char letterInput;
-    int counter = 0;
-    while (endIncorrectLetters != "NO"){
-        int letterPosition = 0;
-        int verify = 0;
-        cout << endl << "Enter letter: ";
-        cin >> letterInput;
-
-        incorrectArr[counter] = letterInput; // fills array with incorrect letters
-        while (letterInput != alphabet[letterPosition]){
-            letterPosition++;
-        }
-        alphabet[letterPosition] = '0'; // removes incorrect letters from alphabet
-
-        cout << endl << "Do you know another incorrect letter? (YES/NO) || ";
-        cin >> endIncorrectLetters;
-        counter++;
-    }
-    return alphabet, incorrectArr;
-}
-
-// display word as known at the moment to the user
-char* printIncorrectLetters(char incorrectArr[26]){
-    int letterPosition = 0;
-    char letter = 'A';
-    cout << "Are these your incorrect letters?" << endl;
-    while (letter != '0'){
-        letter = incorrectArr[letterPosition];
-        if (letter != '0'){
-            cout << letter;   
-        }
-        else{
-            return 0;
-        }
-        letterPosition++;
-    }
-    return incorrectArr;
-} */
-
-/*exitFunc(string input){
-    if(input == "CANCEL"){
-
-    }
-    else{
-        return 0;
-    }
-}*/
