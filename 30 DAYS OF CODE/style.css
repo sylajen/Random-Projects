@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(40, 39, 39);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1, h2 {
+    color: white;
+}
+p {
+    color: white;
+    border: 6px solid powderblue; /*border around text box*/
+    padding: 40px; /*the space between text and border*/
+    margin: 20px; /*the space between border and outside of the movie*/
+}
