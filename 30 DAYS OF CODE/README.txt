@@ -4,7 +4,7 @@ This folder is for me to start leveling up my coding skills by working on a rand
 I will progressively increase the difficulty as the days go on.
 The goal of this is to see where I'm at now in terms of skill, and hopefully see where I'll be, by redoing some of the same projects again at the end of the 30 days and see if my process is any different than it is now.
 
-DAY 1  - 
+DAY 1  - Calculator
 DAY 2  -
 DAY 3  -
 DAY 4  -
