@@ -13,6 +13,8 @@ DAY 6  -
 DAY 7  -
 DAY 8  -
 DAY 9  -
+
+Implement Bootstrap Starting Now
 DAY 10 - 
 DAY 11 -
 DAY 12 -
@@ -23,6 +25,8 @@ DAY 16 -
 DAY 17 -
 DAY 18 -
 DAY 19 -
+
+Implement React or Vue
 DAY 20 -
 DAY 21 -
 DAY 22 -
@@ -40,6 +44,8 @@ BONUS: Small Scale Pokedex
 IDEAS:
 - Tell me what to wear based on the weather for the day (X)
 - Tic Tac Toe game (XX)
+- Hangman (XX)
 - Rock Paper Scissors Game (XX)
 - Chess (XXXX)
 - Pokemon game using Pokemon API (XXXXX)
+- Video Editing Application (XXXXX)
