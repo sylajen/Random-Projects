@@ -2,10 +2,12 @@ body {
     background-color: rgb(40, 39, 39);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-a:link {color: #1ecbe1};
-a:visited {color: #138290};
-a:hover {color: #a5eaf3};
-a:active {color: #bbe3f5};
+a {
+    link {color: #1ecbe1;}
+    visited {color: #138290;}
+    hover {color: #a5eaf3;}
+    active {color: #bbe3f5;}
+}
 h1, h2 {
     color: white;
 }
