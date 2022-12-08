@@ -16,4 +16,13 @@ function calculate() {
 }
 
 
-    
+    // Store Colour Theme Info
+localStorage.setItem("colour-theme", "default");
+
+// Store session info of the last 5 equations calculated
+function recentCalcs() {
+    for (let i = 1; i < 6; i++){
+        var display = equation + solution;
+
+    }
+}
