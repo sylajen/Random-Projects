@@ -10,13 +10,19 @@ ansPossible = [] #empty array to house number of possibilites per number
 def answersPossible(initialNumber, ansPossible, totalPos):
     checker = 0
     #create an array with the number of possibilities for each number
-    for checker in range(totalPos):
+    for checker in range(len(initialNumber)):
         if initialNumber[checker] == 7 or initialNumber[checker] == 9:
             ansPossible.append(4) #4 letters for these numbers
         elif initialNumber[checker] == 2 or initialNumber[checker] == 3 or initialNumber[checker] == 4 or initialNumber[checker] == 5 or initialNumber[checker] == 6 or initialNumber[checker] == 8:
             ansPossible.append(3) #3 letters for these numbers
         else:
             ansPossible.append(0) #0 letters for these numbers
+
+#call the previously defined function and insert everything we've gathered
+answersPossible(initialNumber, ansPossible, totalPos)
+print("There are", len(initialNumber), "total numbers")
+            
+print("These are how many possible letters there are per number: ", ansPossible)
     
 
         
