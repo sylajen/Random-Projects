@@ -22,7 +22,7 @@ def answersPossibleFunc():
 #call the previously defined function and insert everything we've gathered
 answersPossibleFunc()
 print("There are", totalLength, "total digits")
-print("These are the possible number of letters per digit: ", ansPossibleArr)
+print("Possible number of letters per digit provided: ", ansPossibleArr)
 
 #create a function to convert array into non-zero array
 nonzeroArr = []
@@ -36,8 +36,22 @@ def nonzeroArrayFunc():
 
 #call the previously defined function and insert everything we've gathered
 nonzeroArrayFunc()
+print("Zeroes represent digits without letters; these will be represented as spaces")
 print("The same array without 0 values is: ", nonzeroArr)
 
+#create a function that will calculate the total number of outcomes from the user entered number
+totalOutcomes = nonzeroArr[0]
+def totalOutcomesFunc():
+    #literally just have to multiply the the values in the nonzeroArr
+    checker3 = 1
+    global totalOutcomes
+    for checker3 in range(len(nonzeroArr)):
+        totalOutcomes = totalOutcomes * nonzeroArr[checker3]  #NOT CORRECT YET, it multiplies the first array value twice for some reason
+        
+#call the totalOutcome function and display the total outcomes
+totalOutcomesFunc()
+print("The total amount of outcomes possible from the provided number is", totalOutcomes)
+    
         
     
 # def two():          #ABC
